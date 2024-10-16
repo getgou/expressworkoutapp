@@ -1,14 +1,15 @@
 const express = require('express');
 //const { resolve } = require('path');
-
-const v1Router= require('./v1/routes')
+const bodyParser = require('body-parser')
+const v1Router= require('./v1/routes/workoutRoutes')
 
 const app = express();
 const port = 3010;
 
 //app.use(express.static('static'));
 
-app.use('/app/v1', v1Router)
+app.use(bodyParser.json())
+app.use('/app/v1/workouts', v1Router)
 
 /*
 app.get('/', (req, res) => {
