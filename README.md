@@ -30,6 +30,27 @@ curl -X GET  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless
  curl -X POST  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/
     >> Create a new workout
 
+curl -X POST  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/ -H "Content-Type: application/json" -d '{
+  "name": "Get Ab Buster",
+  "mode": "AMRAP 20",
+  "equipment": [
+    "rack",
+    "barbell",
+    "abmat"
+  ],
+  "exercises": [
+    "15 toes to bars",
+    "10 thrusters",
+    "30 abmat sit-ups"
+  ],
+  "trainerTips": [
+    "Split your toes to bars into two sets maximum",
+    "Go unbroken on the thrusters",
+    "Take the abmat sit-ups as a chance to normalize your breath"
+  ]
+}'
+
+
 ## DELETE Request
 
  curl -X DELETE  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/12
