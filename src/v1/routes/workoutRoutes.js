@@ -1,13 +1,16 @@
 
 const express = require('express');
 const workoutController = require('./../../controllers/workoutController');
+const recordController = require('./../../controllers/recordController');
 
 const workoutRouter = express.Router();
 
 
 workoutRouter.get('/', workoutController.getAllWorkouts);
 
-workoutRouter.get('/:workoutId', workoutController.getOneWorkout);
+workoutRouter.get('/:workoutId/records', recordController.getRecordForWorkout);
+
+workoutRouter.get('/:workoutId', workoutController.getOneWorkout)
 
 workoutRouter.post('/', workoutController.createNewWorkout);
 
