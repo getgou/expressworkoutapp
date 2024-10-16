@@ -31,7 +31,7 @@ curl -X GET  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless
     >> Create a new workout
 
 curl -X POST  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/ -H "Content-Type: application/json" -d '{
-  "name": "Get Ab Buster",
+  "name": "Get Ab",
   "mode": "AMRAP 20",
   "equipment": [
     "rack",
@@ -60,4 +60,25 @@ curl -X POST  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialles
 
  curl -X PUT  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/12
     >> Update an existing workout
+
+curl -X PUT  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/15c4e920-5972-452e-a850-360013b00a3a -H "Content-Type: application/json" -d '{
+  "name": "Getgou Ab",
+  "mode": "AMRAP 20",
+  "equipment": [
+    "rack",
+    "barbell",
+    "abmat"
+  ],
+  "exercises": [
+    "15 toes to bars",
+    "10 thrusters",
+    "30 abmat sit-ups"
+  ],
+  "trainerTips": [
+    "Split your toes to bars into two sets maximum",
+    "Go unbroken on the thrusters",
+    "Take the abmat sit-ups as a chance to normalize your breath"
+  ]
+}'
+
 

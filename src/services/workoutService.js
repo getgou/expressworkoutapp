@@ -7,8 +7,9 @@ const getAllWorkouts = ()=>{
     return allWorkouts;
 };
 
-const getOneWorkout = ()=>{
-    return;
+const getOneWorkout = (workoutId)=>{
+    const workout = workoutDB.getOneWorkout(workoutId)
+    return workout;
 }
 
 const createNewWorkout = (newWorkout)=>{
@@ -22,15 +23,17 @@ const createNewWorkout = (newWorkout)=>{
     return createdWorkout;
 }
 
-const fullUpdateOneWorkout = ()=>{
-    return;
+const fullUpdateOneWorkout = (workoutId, changes)=>{
+    const updatedWorkout = workoutDB.fullUpdateOneWorkout(workoutId,changes);
+    return updatedWorkout;
 }
 
 const partialUpdateOneWorkout = ()=>{
     return;
 }
 
-const deleteOneWorkout = ()=>{
+const deleteOneWorkout = (workoutId)=>{
+    workoutDB.deleteOneWorkout(workoutId);
     return;
 }
 

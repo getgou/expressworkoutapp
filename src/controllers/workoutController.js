@@ -8,8 +8,14 @@ const getAllWorkouts = (req,res)=>{
 };
 
 const getOneWorkout = (req,res)=>{
-    const OneWorkout = workoutService.getOneWorkout();
-    res.send("Get a workout by ID")
+    const {
+        params: {workoutId}
+    } = req;
+    if (!workoutId) {
+      return;  
+    }
+    const OneWorkout = workoutService.getOneWorkout(workoutId);
+    res.send({status: "OK", data: OneWorkout})
 }
 
 const createNewWorkout = (req,res)=>{
@@ -23,7 +29,7 @@ const createNewWorkout = (req,res)=>{
        ) {
         return;
     }
-    const newWorkout ={
+    const newWorkout = {
         name: body.name,
         mode: body.mode,
         equipment: body.equipment,
@@ -37,8 +43,14 @@ const createNewWorkout = (req,res)=>{
 }
 
 const fullUpdateOneWorkout = (req,res)=>{
-    const fullyUpdatedOneWorkout = workoutService.fullUpdateOneWorkout();
-    res.send("Update an existing workout")
+    const {
+        body, params: {workoutId}
+    } = req;
+    if (!workoutId) {
+        return;  
+      }
+    const fullyUpdatedOneWorkout = workoutService.fullUpdateOneWorkout(workoutId,body);
+    res.send({status: "OK", data: fullyUpdatedOneWorkout })
 }
 
 const partialUpdateOneWorkout = (req,res)=>{
@@ -47,8 +59,14 @@ const partialUpdateOneWorkout = (req,res)=>{
 }
 
 const deleteOneWorkout = (req,res)=>{
+    const {
+        params: {workoutId},
+    }=req;
+    if (!workoutId) {
+        return;  
+      }
     const deletedOneWorkout = workoutService.deleteOneWorkout();
-    res.send("A workout deleted")
+    res.status(204).send({status: "OK"})
 }
 
 module.exports = {

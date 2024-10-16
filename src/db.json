@@ -82,9 +82,31 @@
         "Go unbroken on the thrusters",
         "Take the abmat sit-ups as a chance to normalize your breath"
       ],
-      "id": "87214098-e931-4cb1-8fa2-3d3e1c1aad73",
-      "createdAt": "10/16/2024, 10:07:47 AM",
-      "updatedAt": "10/16/2024, 10:07:47 AM"
+      "id": "89f38e68-d0b0-4687-992d-0c8e26d12511",
+      "createdAt": "10/16/2024, 10:30:03 AM",
+      "updatedAt": "10/16/2024, 10:30:03 AM"
+    },
+    {
+      "name": "Get Ab",
+      "mode": "AMRAP 20",
+      "equipment": [
+        "rack",
+        "barbell",
+        "abmat"
+      ],
+      "exercises": [
+        "15 toes to bars",
+        "10 thrusters",
+        "30 abmat sit-ups"
+      ],
+      "trainerTips": [
+        "Split your toes to bars into two sets maximum",
+        "Go unbroken on the thrusters",
+        "Take the abmat sit-ups as a chance to normalize your breath"
+      ],
+      "id": "15c4e920-5972-452e-a850-360013b00a3a",
+      "createdAt": "10/16/2024, 11:18:29 AM",
+      "updatedAt": "10/16/2024, 11:18:29 AM"
     }
   ]
 }

@@ -1,12 +1,16 @@
-const DB= require('./db.json')
+const DB= require('./../db.json')
 const {saveToDatabase} = require('./utils')
 
 const getAllWorkouts = ()=>{
     return DB.workouts;
 };
 
-const getOneWorkout = ()=>{
-    return;
+const getOneWorkout = (workoutId)=>{
+    const workout = DB.workouts.find((workout)=>workout.id===workoutId);
+    if (!workoutId) {
+        return;  
+      } 
+    return workout;
 }
 
 const createNewWorkout = (newWorkout)=>{
@@ -21,16 +25,36 @@ saveToDatabase(DB);
 return newWorkout;
 };
 
-const fullUpdateOneWorkout = ()=>{
-    return;
+const fullUpdateOneWorkout = (workoutId, changes)=>{
+    const indexForUpdate = DB.workouts.findIndex(
+        (workout)=>workout.id === workoutId
+    );
+    if (indexForUpdate === -1) {
+        return;  
+    }
+    const updateWorkout ={
+    ...DB.workouts[indexForUpdate],
+    ...changes,
+    updateAt: new  new Date().toLocaleString("en-US", { timeZone: "UTC" }),
+    };
+    DB.workouts[indexForUpdate] = updateWorkout;
+    saveToDatabase(DB);
+    return updateWorkout;
 }
 
 const partialUpdateOneWorkout = ()=>{
     return;
 }
 
-const deleteOneWorkout = ()=>{
-    return;
+const deleteOneWorkout = (workoutId)=>{
+    const indexForDeletion = DB.workouts.findIndex(
+        (workout) => workout.id == workoutId
+    );
+    if (indexForDeletion === -1) {
+        return;  
+    }
+DB.workouts.splice(indexForDeletion, 1);
+saveToDatabase(DB);
 }
 
 module.exports = {
