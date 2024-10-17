@@ -5,9 +5,10 @@ const cors = require('cors')
 const apicache = require('apicache')
 
 const v1Router= require('./v1/routes/workoutRoutes')
+const { swaggerDocs: V1SwaggerDocs } = require("./v1/swagger");
 
 const app = express();
-const port = 3010;
+const PORT = 3010;
 const cache = apicache.middleware;
 
 //app.use(express.static('static'));
@@ -30,6 +31,7 @@ app.get('/', (req, res)=>{
     })
 });
 
-app.listen(port, () => {
-  console.log(`Example express app modified listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Example express app modified listening at http://localhost:${PORT}`);
+  V1SwaggerDocs(app, PORT)
 });

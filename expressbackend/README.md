@@ -108,3 +108,21 @@ As you can see, we've added the two properties "memberId" and "member" to our re
 The frontend just needs to call GET /api/v1/workouts/:workoutId/records and receives automatically all records that are connected with this workout.
 
 On top of that it gets the member id and the endpoint to fetch information about that member. So, we avoided the deeper nesting of our endpoint.
+# Good security practices
+
+ Not implemented
+ // In src/v1/routes/workoutRoutes.js
+...
+
+// Custom made middlewares
+const authenticate = require("../../middlewares/authenticate");
+const authorize = require("../../middlewares/authorize");
+
+router.post("/", authenticate, authorize, workoutController.createNewWorkout);
+
+# Document your API properly
+Some people say:
+
+"An API is just as good as it's documentation"
+
+I think there's a lot truth in this statement because if an API is not well documented it can't be used properly and therefore becomes useless. The documentation helps make developers' lives a lot easier, too.
