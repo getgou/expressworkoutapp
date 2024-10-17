@@ -1,16 +1,21 @@
 
 const express = require('express');
+const apicache = require('apicache')
+
 const workoutController = require('../../controllers/workoutController');
 const recordController = require('../../controllers/recordController');
+
 
 const workoutRouter = express.Router();
 
 
-workoutRouter.get('/', workoutController.getAllWorkouts);
+const cache = apicache.middleware;
 
-workoutRouter.get('/:workoutId/records', recordController.getRecordForWorkout);
+workoutRouter.get('/', cache("2 minutes"), workoutController.getAllWorkouts);
 
 workoutRouter.get('/:workoutId', workoutController.getOneWorkout)
+
+workoutRouter.get('/:workoutId/records', recordController.getRecordForWorkout);
 
 workoutRouter.post('/', workoutController.createNewWorkout);
 

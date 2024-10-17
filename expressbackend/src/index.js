@@ -2,14 +2,16 @@ const express = require('express');
 //const { resolve } = require('path');
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
+const apicache = require('apicache')
 
 const v1Router= require('./v1/routes/workoutRoutes')
 
 const app = express();
 const port = 3010;
+const cache = apicache.middleware;
 
 //app.use(express.static('static'));
+app.use(cache('2 minutes')); // setting 2 minutes catching for all apis
 
 app.use(cors())
 
