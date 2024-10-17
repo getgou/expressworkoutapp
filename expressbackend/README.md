@@ -20,9 +20,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ## GET Request
 
 curl -X GET  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts
-    >> Get all list of workou
+     curl -X GET http://localhost:3010/app/v1/workouts
+    >> Get all list of workouts
 
 curl -X GET  https://expressworkoutapp-mvsx--3010--134daa3c.local-credentialless.webcontainer.io/app/v1/workouts/12
+ curl -X GET http://localhost:3010/app/v1/workouts/12
     >> Get a workout by ID
 
 ## POST Request

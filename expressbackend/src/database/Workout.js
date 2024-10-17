@@ -1,9 +1,16 @@
 const DB= require('../db.json')
 const {saveToDatabase} = require('./utils')
 
-const getAllWorkouts = ()=>{
+const getAllWorkouts = (filterParams)=>{
     try {
-        return DB.workouts;  
+        let workouts = DB.workouts;
+        if (filterParams.mode) {
+            return DB.workouts.filter((workout) =>
+           // workout.mode.toLowerCase().includes(filterParams.mode)
+            workout.mode.toLowerCase().includes(filterParams.mode)
+            );
+        }
+    return workouts;
     } catch (error) {
         throw { status: 400, message: error}
     }

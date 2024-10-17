@@ -1,9 +1,11 @@
 
 const { status } = require('express/lib/response');
 const workoutService = require('../services/workoutService')
+
 const getAllWorkouts = (req,res)=>{
+    const { mode } = req.query;
     try {
-        const allWorkouts = workoutService.getAllWorkouts();    
+        const allWorkouts = workoutService.getAllWorkouts({ mode });    
         //res.send("Get all list of workout")
         res.send({status: "OK", data: allWorkouts})   
     } catch (error) {
