@@ -1,6 +1,6 @@
 
 const { status } = require('express/lib/response');
-const workoutService = require('./../services/workoutService')
+const workoutService = require('../services/workoutService')
 const getAllWorkouts = (req,res)=>{
     try {
         const allWorkouts = workoutService.getAllWorkouts();    

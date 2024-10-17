@@ -1,6 +1,6 @@
 
 const { v4:uuid} = require('uuid')
-const workoutDB = require('./../database/Workout')
+const workoutDB = require('../database/Workout')
 
 const getAllWorkouts = ()=>{
     try {
